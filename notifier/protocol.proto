@@ -1,0 +1,5 @@
+message Notification {
+  required string category = 1;
+  required string message = 2;
+  optional string url = 3;
+}
