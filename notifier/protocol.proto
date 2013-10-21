@@ -3,3 +3,8 @@ message Notification {
   required string message = 2;
   optional string url = 3;
 }
+
+message Email {
+  repeated string mail = 1 [packed=true];
+  required Notification message = 2;
+}
