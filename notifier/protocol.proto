@@ -1,12 +1,23 @@
 package talkwut.notifier;
 
 message Notification {
-  required string category = 1;
-  required string message = 2;
+  message Attach {
+    required string name = 1;
+    required bytes file = 2;
+  }
+
+  required string title = 1;
+  optional string message = 2;
   optional string url = 3;
+  repeated Attach attaches = 4;
 }
 
-message Email {
-  repeated string mail = 1;
-  required Notification message = 2;
+message Envelope {
+  message Destination {
+    repeated string emails = 1;
+    repeated string categories = 2;
+  }
+
+  required Notification message = 1;
+  optional Destination destination = 2;
 }

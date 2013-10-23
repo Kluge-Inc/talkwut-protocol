@@ -1,6 +1,0 @@
-package talkwut.core;
-
-message Registration {
-    required string user = 1;
-    required string queue = 2;
-}

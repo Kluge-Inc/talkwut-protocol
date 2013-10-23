@@ -1,0 +1,15 @@
+package talkwut.core;
+import "notifier/protocol.proto";
+                             option java_generic_services = true;
+
+message RegistrationRequest {
+    required string user = 1;
+    required string queue = 2;
+}
+message RegistrationResponse {
+    repeated string categories = 1;
+}
+
+service RegistrationService {
+   rpc Register(RegistrationRequest) returns(talkwut.notifier.Notification);
+}
