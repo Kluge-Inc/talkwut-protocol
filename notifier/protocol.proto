@@ -20,4 +20,5 @@ message Envelope {
 
   required Notification message = 1;
   optional Destination destination = 2;
+  optional string from = 3;
 }
