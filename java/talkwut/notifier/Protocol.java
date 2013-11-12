@@ -1774,6 +1774,21 @@ public final class Protocol {
      * <code>optional .talkwut.notifier.Envelope.Destination destination = 2;</code>
      */
     talkwut.notifier.Protocol.Envelope.DestinationOrBuilder getDestinationOrBuilder();
+
+    // optional string from = 3;
+    /**
+     * <code>optional string from = 3;</code>
+     */
+    boolean hasFrom();
+    /**
+     * <code>optional string from = 3;</code>
+     */
+    java.lang.String getFrom();
+    /**
+     * <code>optional string from = 3;</code>
+     */
+    com.google.protobuf.ByteString
+        getFromBytes();
   }
   /**
    * Protobuf type {@code talkwut.notifier.Envelope}
@@ -1852,6 +1867,11 @@ public final class Protocol {
               bitField0_ |= 0x00000002;
               break;
             }
+            case 26: {
+              bitField0_ |= 0x00000004;
+              from_ = input.readBytes();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1894,42 +1914,22 @@ public final class Protocol {
     public interface DestinationOrBuilder
         extends com.google.protobuf.MessageOrBuilder {
 
-      // repeated string emails = 1;
+      // repeated string categories = 1;
       /**
-       * <code>repeated string emails = 1;</code>
-       */
-      java.util.List<java.lang.String>
-      getEmailsList();
-      /**
-       * <code>repeated string emails = 1;</code>
-       */
-      int getEmailsCount();
-      /**
-       * <code>repeated string emails = 1;</code>
-       */
-      java.lang.String getEmails(int index);
-      /**
-       * <code>repeated string emails = 1;</code>
-       */
-      com.google.protobuf.ByteString
-          getEmailsBytes(int index);
-
-      // repeated string categories = 2;
-      /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       java.util.List<java.lang.String>
       getCategoriesList();
       /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       int getCategoriesCount();
       /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       java.lang.String getCategories(int index);
       /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       com.google.protobuf.ByteString
           getCategoriesBytes(int index);
@@ -1987,16 +1987,8 @@ public final class Protocol {
               }
               case 10: {
                 if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                  emails_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000001;
-                }
-                emails_.add(input.readBytes());
-                break;
-              }
-              case 18: {
-                if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
                   categories_ = new com.google.protobuf.LazyStringArrayList();
-                  mutable_bitField0_ |= 0x00000002;
+                  mutable_bitField0_ |= 0x00000001;
                 }
                 categories_.add(input.readBytes());
                 break;
@@ -2010,9 +2002,6 @@ public final class Protocol {
               e.getMessage()).setUnfinishedMessage(this);
         } finally {
           if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-            emails_ = new com.google.protobuf.UnmodifiableLazyStringList(emails_);
-          }
-          if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
             categories_ = new com.google.protobuf.UnmodifiableLazyStringList(categories_);
           }
           this.unknownFields = unknownFields.build();
@@ -2046,60 +2035,30 @@ public final class Protocol {
         return PARSER;
       }
 
-      // repeated string emails = 1;
-      public static final int EMAILS_FIELD_NUMBER = 1;
-      private com.google.protobuf.LazyStringList emails_;
-      /**
-       * <code>repeated string emails = 1;</code>
-       */
-      public java.util.List<java.lang.String>
-          getEmailsList() {
-        return emails_;
-      }
-      /**
-       * <code>repeated string emails = 1;</code>
-       */
-      public int getEmailsCount() {
-        return emails_.size();
-      }
-      /**
-       * <code>repeated string emails = 1;</code>
-       */
-      public java.lang.String getEmails(int index) {
-        return emails_.get(index);
-      }
-      /**
-       * <code>repeated string emails = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getEmailsBytes(int index) {
-        return emails_.getByteString(index);
-      }
-
-      // repeated string categories = 2;
-      public static final int CATEGORIES_FIELD_NUMBER = 2;
+      // repeated string categories = 1;
+      public static final int CATEGORIES_FIELD_NUMBER = 1;
       private com.google.protobuf.LazyStringList categories_;
       /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       public java.util.List<java.lang.String>
           getCategoriesList() {
         return categories_;
       }
       /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       public int getCategoriesCount() {
         return categories_.size();
       }
       /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       public java.lang.String getCategories(int index) {
         return categories_.get(index);
       }
       /**
-       * <code>repeated string categories = 2;</code>
+       * <code>repeated string categories = 1;</code>
        */
       public com.google.protobuf.ByteString
           getCategoriesBytes(int index) {
@@ -2107,7 +2066,6 @@ public final class Protocol {
       }
 
       private void initFields() {
-        emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
         categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       }
       private byte memoizedIsInitialized = -1;
@@ -2122,11 +2080,8 @@ public final class Protocol {
       public void writeTo(com.google.protobuf.CodedOutputStream output)
                           throws java.io.IOException {
         getSerializedSize();
-        for (int i = 0; i < emails_.size(); i++) {
-          output.writeBytes(1, emails_.getByteString(i));
-        }
         for (int i = 0; i < categories_.size(); i++) {
-          output.writeBytes(2, categories_.getByteString(i));
+          output.writeBytes(1, categories_.getByteString(i));
         }
         getUnknownFields().writeTo(output);
       }
@@ -2137,15 +2092,6 @@ public final class Protocol {
         if (size != -1) return size;
 
         size = 0;
-        {
-          int dataSize = 0;
-          for (int i = 0; i < emails_.size(); i++) {
-            dataSize += com.google.protobuf.CodedOutputStream
-              .computeBytesSizeNoTag(emails_.getByteString(i));
-          }
-          size += dataSize;
-          size += 1 * getEmailsList().size();
-        }
         {
           int dataSize = 0;
           for (int i = 0; i < categories_.size(); i++) {
@@ -2271,10 +2217,8 @@ public final class Protocol {
 
         public Builder clear() {
           super.clear();
-          emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
           categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           return this;
         }
 
@@ -2303,15 +2247,9 @@ public final class Protocol {
           talkwut.notifier.Protocol.Envelope.Destination result = new talkwut.notifier.Protocol.Envelope.Destination(this);
           int from_bitField0_ = bitField0_;
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            emails_ = new com.google.protobuf.UnmodifiableLazyStringList(
-                emails_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.emails_ = emails_;
-          if (((bitField0_ & 0x00000002) == 0x00000002)) {
             categories_ = new com.google.protobuf.UnmodifiableLazyStringList(
                 categories_);
-            bitField0_ = (bitField0_ & ~0x00000002);
+            bitField0_ = (bitField0_ & ~0x00000001);
           }
           result.categories_ = categories_;
           onBuilt();
@@ -2329,20 +2267,10 @@ public final class Protocol {
 
         public Builder mergeFrom(talkwut.notifier.Protocol.Envelope.Destination other) {
           if (other == talkwut.notifier.Protocol.Envelope.Destination.getDefaultInstance()) return this;
-          if (!other.emails_.isEmpty()) {
-            if (emails_.isEmpty()) {
-              emails_ = other.emails_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureEmailsIsMutable();
-              emails_.addAll(other.emails_);
-            }
-            onChanged();
-          }
           if (!other.categories_.isEmpty()) {
             if (categories_.isEmpty()) {
               categories_ = other.categories_;
-              bitField0_ = (bitField0_ & ~0x00000002);
+              bitField0_ = (bitField0_ & ~0x00000001);
             } else {
               ensureCategoriesIsMutable();
               categories_.addAll(other.categories_);
@@ -2376,135 +2304,42 @@ public final class Protocol {
         }
         private int bitField0_;
 
-        // repeated string emails = 1;
-        private com.google.protobuf.LazyStringList emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        private void ensureEmailsIsMutable() {
+        // repeated string categories = 1;
+        private com.google.protobuf.LazyStringList categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        private void ensureCategoriesIsMutable() {
           if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-            emails_ = new com.google.protobuf.LazyStringArrayList(emails_);
+            categories_ = new com.google.protobuf.LazyStringArrayList(categories_);
             bitField0_ |= 0x00000001;
            }
         }
         /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public java.util.List<java.lang.String>
-            getEmailsList() {
-          return java.util.Collections.unmodifiableList(emails_);
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public int getEmailsCount() {
-          return emails_.size();
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public java.lang.String getEmails(int index) {
-          return emails_.get(index);
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public com.google.protobuf.ByteString
-            getEmailsBytes(int index) {
-          return emails_.getByteString(index);
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public Builder setEmails(
-            int index, java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEmailsIsMutable();
-          emails_.set(index, value);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public Builder addEmails(
-            java.lang.String value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEmailsIsMutable();
-          emails_.add(value);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public Builder addAllEmails(
-            java.lang.Iterable<java.lang.String> values) {
-          ensureEmailsIsMutable();
-          super.addAll(values, emails_);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public Builder clearEmails() {
-          emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-          return this;
-        }
-        /**
-         * <code>repeated string emails = 1;</code>
-         */
-        public Builder addEmailsBytes(
-            com.google.protobuf.ByteString value) {
-          if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureEmailsIsMutable();
-          emails_.add(value);
-          onChanged();
-          return this;
-        }
-
-        // repeated string categories = 2;
-        private com.google.protobuf.LazyStringList categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        private void ensureCategoriesIsMutable() {
-          if (!((bitField0_ & 0x00000002) == 0x00000002)) {
-            categories_ = new com.google.protobuf.LazyStringArrayList(categories_);
-            bitField0_ |= 0x00000002;
-           }
-        }
-        /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public java.util.List<java.lang.String>
             getCategoriesList() {
           return java.util.Collections.unmodifiableList(categories_);
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public int getCategoriesCount() {
           return categories_.size();
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public java.lang.String getCategories(int index) {
           return categories_.get(index);
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public com.google.protobuf.ByteString
             getCategoriesBytes(int index) {
           return categories_.getByteString(index);
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public Builder setCategories(
             int index, java.lang.String value) {
@@ -2517,7 +2352,7 @@ public final class Protocol {
           return this;
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public Builder addCategories(
             java.lang.String value) {
@@ -2530,7 +2365,7 @@ public final class Protocol {
           return this;
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public Builder addAllCategories(
             java.lang.Iterable<java.lang.String> values) {
@@ -2540,16 +2375,16 @@ public final class Protocol {
           return this;
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public Builder clearCategories() {
           categories_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-          bitField0_ = (bitField0_ & ~0x00000002);
+          bitField0_ = (bitField0_ & ~0x00000001);
           onChanged();
           return this;
         }
         /**
-         * <code>repeated string categories = 2;</code>
+         * <code>repeated string categories = 1;</code>
          */
         public Builder addCategoriesBytes(
             com.google.protobuf.ByteString value) {
@@ -2618,9 +2453,53 @@ public final class Protocol {
       return destination_;
     }
 
+    // optional string from = 3;
+    public static final int FROM_FIELD_NUMBER = 3;
+    private java.lang.Object from_;
+    /**
+     * <code>optional string from = 3;</code>
+     */
+    public boolean hasFrom() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>optional string from = 3;</code>
+     */
+    public java.lang.String getFrom() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          from_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string from = 3;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFromBytes() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        from_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private void initFields() {
       message_ = talkwut.notifier.Protocol.Notification.getDefaultInstance();
       destination_ = talkwut.notifier.Protocol.Envelope.Destination.getDefaultInstance();
+      from_ = "";
     }
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
@@ -2648,6 +2527,9 @@ public final class Protocol {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeMessage(2, destination_);
       }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeBytes(3, getFromBytes());
+      }
       getUnknownFields().writeTo(output);
     }
 
@@ -2664,6 +2546,10 @@ public final class Protocol {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(2, destination_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(3, getFromBytes());
       }
       size += getUnknownFields().getSerializedSize();
       memoizedSerializedSize = size;
@@ -2795,6 +2681,8 @@ public final class Protocol {
           destinationBuilder_.clear();
         }
         bitField0_ = (bitField0_ & ~0x00000002);
+        from_ = "";
+        bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
@@ -2839,6 +2727,10 @@ public final class Protocol {
         } else {
           result.destination_ = destinationBuilder_.build();
         }
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.from_ = from_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -2860,6 +2752,11 @@ public final class Protocol {
         }
         if (other.hasDestination()) {
           mergeDestination(other.getDestination());
+        }
+        if (other.hasFrom()) {
+          bitField0_ |= 0x00000004;
+          from_ = other.from_;
+          onChanged();
         }
         this.mergeUnknownFields(other.getUnknownFields());
         return this;
@@ -3130,6 +3027,80 @@ public final class Protocol {
         return destinationBuilder_;
       }
 
+      // optional string from = 3;
+      private java.lang.Object from_ = "";
+      /**
+       * <code>optional string from = 3;</code>
+       */
+      public boolean hasFrom() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>optional string from = 3;</code>
+       */
+      public java.lang.String getFrom() {
+        java.lang.Object ref = from_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          from_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string from = 3;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFromBytes() {
+        java.lang.Object ref = from_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          from_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string from = 3;</code>
+       */
+      public Builder setFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string from = 3;</code>
+       */
+      public Builder clearFrom() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        from_ = getDefaultInstance().getFrom();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string from = 3;</code>
+       */
+      public Builder setFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        from_ = value;
+        onChanged();
+        return this;
+      }
+
       // @@protoc_insertion_point(builder_scope:talkwut.notifier.Envelope)
     }
 
@@ -3139,6 +3110,870 @@ public final class Protocol {
     }
 
     // @@protoc_insertion_point(class_scope:talkwut.notifier.Envelope)
+  }
+
+  public interface EMailOrBuilder
+      extends com.google.protobuf.MessageOrBuilder {
+
+    // optional string from = 1;
+    /**
+     * <code>optional string from = 1;</code>
+     */
+    boolean hasFrom();
+    /**
+     * <code>optional string from = 1;</code>
+     */
+    java.lang.String getFrom();
+    /**
+     * <code>optional string from = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getFromBytes();
+
+    // repeated string emails = 2;
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    java.util.List<java.lang.String>
+    getEmailsList();
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    int getEmailsCount();
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    java.lang.String getEmails(int index);
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getEmailsBytes(int index);
+
+    // required .talkwut.notifier.Notification message = 3;
+    /**
+     * <code>required .talkwut.notifier.Notification message = 3;</code>
+     */
+    boolean hasMessage();
+    /**
+     * <code>required .talkwut.notifier.Notification message = 3;</code>
+     */
+    talkwut.notifier.Protocol.Notification getMessage();
+    /**
+     * <code>required .talkwut.notifier.Notification message = 3;</code>
+     */
+    talkwut.notifier.Protocol.NotificationOrBuilder getMessageOrBuilder();
+  }
+  /**
+   * Protobuf type {@code talkwut.notifier.EMail}
+   */
+  public static final class EMail extends
+      com.google.protobuf.GeneratedMessage
+      implements EMailOrBuilder {
+    // Use EMail.newBuilder() to construct.
+    private EMail(com.google.protobuf.GeneratedMessage.Builder<?> builder) {
+      super(builder);
+      this.unknownFields = builder.getUnknownFields();
+    }
+    private EMail(boolean noInit) { this.unknownFields = com.google.protobuf.UnknownFieldSet.getDefaultInstance(); }
+
+    private static final EMail defaultInstance;
+    public static EMail getDefaultInstance() {
+      return defaultInstance;
+    }
+
+    public EMail getDefaultInstanceForType() {
+      return defaultInstance;
+    }
+
+    private final com.google.protobuf.UnknownFieldSet unknownFields;
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+        getUnknownFields() {
+      return this.unknownFields;
+    }
+    private EMail(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      initFields();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              bitField0_ |= 0x00000001;
+              from_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                emails_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              emails_.add(input.readBytes());
+              break;
+            }
+            case 26: {
+              talkwut.notifier.Protocol.Notification.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000002) == 0x00000002)) {
+                subBuilder = message_.toBuilder();
+              }
+              message_ = input.readMessage(talkwut.notifier.Protocol.Notification.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(message_);
+                message_ = subBuilder.buildPartial();
+              }
+              bitField0_ |= 0x00000002;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e.getMessage()).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          emails_ = new com.google.protobuf.UnmodifiableLazyStringList(emails_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return talkwut.notifier.Protocol.internal_static_talkwut_notifier_EMail_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return talkwut.notifier.Protocol.internal_static_talkwut_notifier_EMail_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              talkwut.notifier.Protocol.EMail.class, talkwut.notifier.Protocol.EMail.Builder.class);
+    }
+
+    public static com.google.protobuf.Parser<EMail> PARSER =
+        new com.google.protobuf.AbstractParser<EMail>() {
+      public EMail parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new EMail(input, extensionRegistry);
+      }
+    };
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<EMail> getParserForType() {
+      return PARSER;
+    }
+
+    private int bitField0_;
+    // optional string from = 1;
+    public static final int FROM_FIELD_NUMBER = 1;
+    private java.lang.Object from_;
+    /**
+     * <code>optional string from = 1;</code>
+     */
+    public boolean hasFrom() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>optional string from = 1;</code>
+     */
+    public java.lang.String getFrom() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          from_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <code>optional string from = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getFromBytes() {
+      java.lang.Object ref = from_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        from_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    // repeated string emails = 2;
+    public static final int EMAILS_FIELD_NUMBER = 2;
+    private com.google.protobuf.LazyStringList emails_;
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    public java.util.List<java.lang.String>
+        getEmailsList() {
+      return emails_;
+    }
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    public int getEmailsCount() {
+      return emails_.size();
+    }
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    public java.lang.String getEmails(int index) {
+      return emails_.get(index);
+    }
+    /**
+     * <code>repeated string emails = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getEmailsBytes(int index) {
+      return emails_.getByteString(index);
+    }
+
+    // required .talkwut.notifier.Notification message = 3;
+    public static final int MESSAGE_FIELD_NUMBER = 3;
+    private talkwut.notifier.Protocol.Notification message_;
+    /**
+     * <code>required .talkwut.notifier.Notification message = 3;</code>
+     */
+    public boolean hasMessage() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required .talkwut.notifier.Notification message = 3;</code>
+     */
+    public talkwut.notifier.Protocol.Notification getMessage() {
+      return message_;
+    }
+    /**
+     * <code>required .talkwut.notifier.Notification message = 3;</code>
+     */
+    public talkwut.notifier.Protocol.NotificationOrBuilder getMessageOrBuilder() {
+      return message_;
+    }
+
+    private void initFields() {
+      from_ = "";
+      emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      message_ = talkwut.notifier.Protocol.Notification.getDefaultInstance();
+    }
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized != -1) return isInitialized == 1;
+
+      if (!hasMessage()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!getMessage().isInitialized()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      getSerializedSize();
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeBytes(1, getFromBytes());
+      }
+      for (int i = 0; i < emails_.size(); i++) {
+        output.writeBytes(2, emails_.getByteString(i));
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeMessage(3, message_);
+      }
+      getUnknownFields().writeTo(output);
+    }
+
+    private int memoizedSerializedSize = -1;
+    public int getSerializedSize() {
+      int size = memoizedSerializedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, getFromBytes());
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < emails_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeBytesSizeNoTag(emails_.getByteString(i));
+        }
+        size += dataSize;
+        size += 1 * getEmailsList().size();
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, message_);
+      }
+      size += getUnknownFields().getSerializedSize();
+      memoizedSerializedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    protected java.lang.Object writeReplace()
+        throws java.io.ObjectStreamException {
+      return super.writeReplace();
+    }
+
+    public static talkwut.notifier.Protocol.EMail parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static talkwut.notifier.Protocol.EMail parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static talkwut.notifier.Protocol.EMail parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static talkwut.notifier.Protocol.EMail parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static talkwut.notifier.Protocol.EMail parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static talkwut.notifier.Protocol.EMail parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+    public static talkwut.notifier.Protocol.EMail parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input);
+    }
+    public static talkwut.notifier.Protocol.EMail parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseDelimitedFrom(input, extensionRegistry);
+    }
+    public static talkwut.notifier.Protocol.EMail parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input);
+    }
+    public static talkwut.notifier.Protocol.EMail parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return PARSER.parseFrom(input, extensionRegistry);
+    }
+
+    public static Builder newBuilder() { return Builder.create(); }
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder(talkwut.notifier.Protocol.EMail prototype) {
+      return newBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() { return newBuilder(this); }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code talkwut.notifier.EMail}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessage.Builder<Builder>
+       implements talkwut.notifier.Protocol.EMailOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return talkwut.notifier.Protocol.internal_static_talkwut_notifier_EMail_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessage.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return talkwut.notifier.Protocol.internal_static_talkwut_notifier_EMail_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                talkwut.notifier.Protocol.EMail.class, talkwut.notifier.Protocol.EMail.Builder.class);
+      }
+
+      // Construct using talkwut.notifier.Protocol.EMail.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessage.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessage.alwaysUseFieldBuilders) {
+          getMessageFieldBuilder();
+        }
+      }
+      private static Builder create() {
+        return new Builder();
+      }
+
+      public Builder clear() {
+        super.clear();
+        from_ = "";
+        bitField0_ = (bitField0_ & ~0x00000001);
+        emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        if (messageBuilder_ == null) {
+          message_ = talkwut.notifier.Protocol.Notification.getDefaultInstance();
+        } else {
+          messageBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public Builder clone() {
+        return create().mergeFrom(buildPartial());
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return talkwut.notifier.Protocol.internal_static_talkwut_notifier_EMail_descriptor;
+      }
+
+      public talkwut.notifier.Protocol.EMail getDefaultInstanceForType() {
+        return talkwut.notifier.Protocol.EMail.getDefaultInstance();
+      }
+
+      public talkwut.notifier.Protocol.EMail build() {
+        talkwut.notifier.Protocol.EMail result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public talkwut.notifier.Protocol.EMail buildPartial() {
+        talkwut.notifier.Protocol.EMail result = new talkwut.notifier.Protocol.EMail(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.from_ = from_;
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          emails_ = new com.google.protobuf.UnmodifiableLazyStringList(
+              emails_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.emails_ = emails_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        if (messageBuilder_ == null) {
+          result.message_ = message_;
+        } else {
+          result.message_ = messageBuilder_.build();
+        }
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof talkwut.notifier.Protocol.EMail) {
+          return mergeFrom((talkwut.notifier.Protocol.EMail)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(talkwut.notifier.Protocol.EMail other) {
+        if (other == talkwut.notifier.Protocol.EMail.getDefaultInstance()) return this;
+        if (other.hasFrom()) {
+          bitField0_ |= 0x00000001;
+          from_ = other.from_;
+          onChanged();
+        }
+        if (!other.emails_.isEmpty()) {
+          if (emails_.isEmpty()) {
+            emails_ = other.emails_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureEmailsIsMutable();
+            emails_.addAll(other.emails_);
+          }
+          onChanged();
+        }
+        if (other.hasMessage()) {
+          mergeMessage(other.getMessage());
+        }
+        this.mergeUnknownFields(other.getUnknownFields());
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasMessage()) {
+          
+          return false;
+        }
+        if (!getMessage().isInitialized()) {
+          
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        talkwut.notifier.Protocol.EMail parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (talkwut.notifier.Protocol.EMail) e.getUnfinishedMessage();
+          throw e;
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      // optional string from = 1;
+      private java.lang.Object from_ = "";
+      /**
+       * <code>optional string from = 1;</code>
+       */
+      public boolean hasFrom() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>optional string from = 1;</code>
+       */
+      public java.lang.String getFrom() {
+        java.lang.Object ref = from_;
+        if (!(ref instanceof java.lang.String)) {
+          java.lang.String s = ((com.google.protobuf.ByteString) ref)
+              .toStringUtf8();
+          from_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string from = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getFromBytes() {
+        java.lang.Object ref = from_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          from_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string from = 1;</code>
+       */
+      public Builder setFrom(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        from_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string from = 1;</code>
+       */
+      public Builder clearFrom() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        from_ = getDefaultInstance().getFrom();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string from = 1;</code>
+       */
+      public Builder setFromBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
+        from_ = value;
+        onChanged();
+        return this;
+      }
+
+      // repeated string emails = 2;
+      private com.google.protobuf.LazyStringList emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureEmailsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          emails_ = new com.google.protobuf.LazyStringArrayList(emails_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public java.util.List<java.lang.String>
+          getEmailsList() {
+        return java.util.Collections.unmodifiableList(emails_);
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public int getEmailsCount() {
+        return emails_.size();
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public java.lang.String getEmails(int index) {
+        return emails_.get(index);
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getEmailsBytes(int index) {
+        return emails_.getByteString(index);
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public Builder setEmails(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureEmailsIsMutable();
+        emails_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public Builder addEmails(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureEmailsIsMutable();
+        emails_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public Builder addAllEmails(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureEmailsIsMutable();
+        super.addAll(values, emails_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public Builder clearEmails() {
+        emails_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string emails = 2;</code>
+       */
+      public Builder addEmailsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureEmailsIsMutable();
+        emails_.add(value);
+        onChanged();
+        return this;
+      }
+
+      // required .talkwut.notifier.Notification message = 3;
+      private talkwut.notifier.Protocol.Notification message_ = talkwut.notifier.Protocol.Notification.getDefaultInstance();
+      private com.google.protobuf.SingleFieldBuilder<
+          talkwut.notifier.Protocol.Notification, talkwut.notifier.Protocol.Notification.Builder, talkwut.notifier.Protocol.NotificationOrBuilder> messageBuilder_;
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public boolean hasMessage() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public talkwut.notifier.Protocol.Notification getMessage() {
+        if (messageBuilder_ == null) {
+          return message_;
+        } else {
+          return messageBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public Builder setMessage(talkwut.notifier.Protocol.Notification value) {
+        if (messageBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          message_ = value;
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public Builder setMessage(
+          talkwut.notifier.Protocol.Notification.Builder builderForValue) {
+        if (messageBuilder_ == null) {
+          message_ = builderForValue.build();
+          onChanged();
+        } else {
+          messageBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public Builder mergeMessage(talkwut.notifier.Protocol.Notification value) {
+        if (messageBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              message_ != talkwut.notifier.Protocol.Notification.getDefaultInstance()) {
+            message_ =
+              talkwut.notifier.Protocol.Notification.newBuilder(message_).mergeFrom(value).buildPartial();
+          } else {
+            message_ = value;
+          }
+          onChanged();
+        } else {
+          messageBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public Builder clearMessage() {
+        if (messageBuilder_ == null) {
+          message_ = talkwut.notifier.Protocol.Notification.getDefaultInstance();
+          onChanged();
+        } else {
+          messageBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public talkwut.notifier.Protocol.Notification.Builder getMessageBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getMessageFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      public talkwut.notifier.Protocol.NotificationOrBuilder getMessageOrBuilder() {
+        if (messageBuilder_ != null) {
+          return messageBuilder_.getMessageOrBuilder();
+        } else {
+          return message_;
+        }
+      }
+      /**
+       * <code>required .talkwut.notifier.Notification message = 3;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilder<
+          talkwut.notifier.Protocol.Notification, talkwut.notifier.Protocol.Notification.Builder, talkwut.notifier.Protocol.NotificationOrBuilder> 
+          getMessageFieldBuilder() {
+        if (messageBuilder_ == null) {
+          messageBuilder_ = new com.google.protobuf.SingleFieldBuilder<
+              talkwut.notifier.Protocol.Notification, talkwut.notifier.Protocol.Notification.Builder, talkwut.notifier.Protocol.NotificationOrBuilder>(
+                  message_,
+                  getParentForChildren(),
+                  isClean());
+          message_ = null;
+        }
+        return messageBuilder_;
+      }
+
+      // @@protoc_insertion_point(builder_scope:talkwut.notifier.EMail)
+    }
+
+    static {
+      defaultInstance = new EMail(true);
+      defaultInstance.initFields();
+    }
+
+    // @@protoc_insertion_point(class_scope:talkwut.notifier.EMail)
   }
 
   private static com.google.protobuf.Descriptors.Descriptor
@@ -3161,6 +3996,11 @@ public final class Protocol {
   private static
     com.google.protobuf.GeneratedMessage.FieldAccessorTable
       internal_static_talkwut_notifier_Envelope_Destination_fieldAccessorTable;
+  private static com.google.protobuf.Descriptors.Descriptor
+    internal_static_talkwut_notifier_EMail_descriptor;
+  private static
+    com.google.protobuf.GeneratedMessage.FieldAccessorTable
+      internal_static_talkwut_notifier_EMail_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -3175,11 +4015,13 @@ public final class Protocol {
       "essage\030\002 \001(\t\022\013\n\003url\030\003 \001(\t\0227\n\010attaches\030\004 " +
       "\003(\0132%.talkwut.notifier.Notification.Atta" +
       "ch\032$\n\006Attach\022\014\n\004name\030\001 \002(\t\022\014\n\004file\030\002 \002(\014" +
-      "\"\253\001\n\010Envelope\022/\n\007message\030\001 \002(\0132\036.talkwut" +
+      "\"\251\001\n\010Envelope\022/\n\007message\030\001 \002(\0132\036.talkwut" +
       ".notifier.Notification\022;\n\013destination\030\002 " +
       "\001(\0132&.talkwut.notifier.Envelope.Destinat" +
-      "ion\0321\n\013Destination\022\016\n\006emails\030\001 \003(\t\022\022\n\nca" +
-      "tegories\030\002 \003(\t"
+      "ion\022\014\n\004from\030\003 \001(\t\032!\n\013Destination\022\022\n\ncate" +
+      "gories\030\001 \003(\t\"V\n\005EMail\022\014\n\004from\030\001 \001(\t\022\016\n\006e",
+      "mails\030\002 \003(\t\022/\n\007message\030\003 \002(\0132\036.talkwut.n" +
+      "otifier.Notification"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
       new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
@@ -3203,13 +4045,19 @@ public final class Protocol {
           internal_static_talkwut_notifier_Envelope_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_talkwut_notifier_Envelope_descriptor,
-              new java.lang.String[] { "Message", "Destination", });
+              new java.lang.String[] { "Message", "Destination", "From", });
           internal_static_talkwut_notifier_Envelope_Destination_descriptor =
             internal_static_talkwut_notifier_Envelope_descriptor.getNestedTypes().get(0);
           internal_static_talkwut_notifier_Envelope_Destination_fieldAccessorTable = new
             com.google.protobuf.GeneratedMessage.FieldAccessorTable(
               internal_static_talkwut_notifier_Envelope_Destination_descriptor,
-              new java.lang.String[] { "Emails", "Categories", });
+              new java.lang.String[] { "Categories", });
+          internal_static_talkwut_notifier_EMail_descriptor =
+            getDescriptor().getMessageTypes().get(2);
+          internal_static_talkwut_notifier_EMail_fieldAccessorTable = new
+            com.google.protobuf.GeneratedMessage.FieldAccessorTable(
+              internal_static_talkwut_notifier_EMail_descriptor,
+              new java.lang.String[] { "From", "Emails", "Message", });
           return null;
         }
       };

@@ -14,11 +14,16 @@ message Notification {
 
 message Envelope {
   message Destination {
-    repeated string emails = 1;
-    repeated string categories = 2;
+    repeated string categories = 1;
   }
 
   required Notification message = 1;
   optional Destination destination = 2;
   optional string from = 3;
+}
+
+message EMail {
+ optional string from = 1;
+ repeated string emails = 2;
+ required Notification message = 3;
 }
